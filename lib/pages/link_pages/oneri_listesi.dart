@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const Liste());
@@ -24,15 +25,28 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  TextEditingController o1 = TextEditingController();
+
+  var gelenYaziBasligi = "";
+  var gelenYaziIcerigi = "";
+
+  yaziGetir() {
+    FirebaseFirestore.instance
+        .collection("Oneriler")
+        .doc(o1.text)
+        .get()
+        .then((gelenVeri) {
+      setState(() {
+        gelenYaziBasligi = gelenVeri.data()!['konu'];
+        gelenYaziIcerigi = gelenVeri.data()!['oneri'];
+      });
+    });
+  }
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Öneri Şikayet Alanından Girilen Veriler Burada Oluşturulacak Olan Listeye Eklenecektir',
-      style: optionStyle,
-    ),
-  ];
+  static const List<Widget> _widgetOptions = <Widget>[];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -42,33 +56,30 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(175, 1, 1, 120),
-          title: const Text(
-            'Öneri Listesi',
-            style: TextStyle(fontSize: 18),
+    return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: Colors.indigo,
+      //   title: Text('Devamsızlık Ekleme'),
+      // ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.all(40),
+          child: Center(
+            child: Column(
+              children: [
+                RaisedButton(child: Text("Onerilerim"), onPressed: yaziGetir),
+                SizedBox(height: 10),
+                // SizedBox(
+                //   width: 167,
+                //   child: RaisedButton(
+                //       child: Text("Devamsızlık Güncelle"),
+                //       onPressed: yaziGuncelle),
+                // ),
+                // RaisedButton(
+                //     child: Text("Devamsızlığım"), onPressed: yaziGetir),
+              ],
+            ),
           ),
-        ),
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.window),
-              label: 'Öneri Listem',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.window),
-              label: 'Öneri Sil',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
-          onTap: _onItemTapped,
         ),
       ),
     );
