@@ -73,12 +73,21 @@ class _OneriFormState extends State<OneriForm> {
                         borderRadius: BorderRadius.circular(10.0),
                       )),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Column(
                   children: [
-                    SizedBox(
-                        width: 150,
-                        child: RaisedButton(
-                            child: Text("Öneri Ekle"), onPressed: yaziEkle)),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: Colors.blue,
+                      ),
+                      child: SizedBox(
+                          width: 150,
+                          child: FlatButton(
+                              child: Text("Öneri Ekle"), onPressed: yaziEkle)),
+                    ),
 
                     // SizedBox(
                     //   width: 167,

@@ -82,32 +82,74 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                         borderRadius: BorderRadius.circular(10.0),
                       )),
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                        width: 150,
-                        child: RaisedButton(
-                            child: Text("Devamsızlık Ekle"),
-                            onPressed: yaziEkle)),
-                    SizedBox(
-                      width: 167,
-                      child: RaisedButton(
-                          child: Text("Devamsızlık Güncelle"),
-                          onPressed: yaziGuncelle),
-                    ),
-                    RaisedButton(
-                        child: Text("Devamsızlığım"), onPressed: yaziGetir),
-                  ],
+                SizedBox(
+                  height: 10,
                 ),
-                ListTile(
-                  title: Text(
-                    gelenYaziBasligi,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
-                        fontFamily: 'Georgia'),
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: SizedBox(
+                            width: 250,
+                            child: FlatButton(
+                                autofocus: true,
+                                //color: Colors.blue,
+                                child: Text(
+                                  "Devamsızlık Ekle",
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                onPressed: yaziEkle)),
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.blue),
+                        child: SizedBox(
+                          width: 250,
+                          child: FlatButton(
+                              child: Text(
+                                "Devamsızlık Güncelle",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              onPressed: yaziGuncelle),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blue,
+                        ),
+                        child: SizedBox(
+                          width: 250,
+                          child: FlatButton(
+                              child: Text(
+                                "Devamsızlığım",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              onPressed: yaziGetir),
+                        ),
+                      ),
+                    ],
                   ),
-                  subtitle: Text(gelenYaziIcerigi),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(100, 50, 12, 100),
+                  child: ListTile(
+                    title: Text(
+                      gelenYaziBasligi,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                          fontFamily: 'Georgia'),
+                    ),
+                    subtitle: Text(gelenYaziIcerigi + " devamsızlık yaptın"),
+                  ),
                 )
               ],
             ),

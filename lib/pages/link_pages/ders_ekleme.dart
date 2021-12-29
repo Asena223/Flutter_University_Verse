@@ -1,3 +1,4 @@
+import 'package:bitirme_deneme_5/pages/link_pages/derslerim.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class _DerslerimState extends State<Derslerim> {
     FirebaseFirestore.instance
         .collection("Derslerim")
         .doc(t1.text)
-        .set({'baslik': t1.text, 'ders': t2.text}).whenComplete(
+        .set({'ders_adi': t1.text, 'ders_saati': t2.text}).whenComplete(
             () => print("Ders Eklendi"));
   }
 
@@ -54,7 +55,7 @@ class _DerslerimState extends State<Derslerim> {
     FirebaseFirestore.instance
         .collection('Derslerim')
         .doc(t1.text)
-        .update({'baslik': t1.text, 'ders': t2.text}).whenComplete(
+        .update({'ders_adi': t1.text, 'ders_saati': t2.text}).whenComplete(
             () => print("Ders güncellendi"));
   }
 
@@ -65,8 +66,8 @@ class _DerslerimState extends State<Derslerim> {
         .get()
         .then((gelenVeri) {
       setState(() {
-        gelenYaziBasligi = gelenVeri.data()!['baslik'];
-        gelenYaziIcerigi = gelenVeri.data()!['ders'];
+        gelenYaziBasligi = gelenVeri.data()!['ders_adi'];
+        gelenYaziIcerigi = gelenVeri.data()!['ders_saati'];
       });
     });
   }
@@ -583,7 +584,13 @@ class _DerslerimState extends State<Derslerim> {
                 SizedBox(
                     width: 100,
                     child: RaisedButton(
-                        child: Text("Derslerim"), onPressed: dersGetir)),
+                        child: Text("Derslerim"),
+                        onPressed: () => Navigator.pushReplacement(
+                              //Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DerslerimListePage()),
+                            ))),
               ],
             ),
             ListTile(

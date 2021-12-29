@@ -1,4 +1,4 @@
-import 'package:bitirme_deneme_5/pages/link_pages/ders_devam.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/ders_ekleme.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
@@ -37,7 +37,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              title: Text('Derslerim'),
+              title: Text(
+                'Ders Ekle',
+                style: TextStyle(fontFamily: 'Merriweather'),
+              ),
               leading: Icon(Icons.window),
               onTap: () {
                 Navigator.push(context,
@@ -46,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               title: Text('Devamsızlıklarım'),
-              leading: Icon(Icons.window),
+              leading: Icon(Icons.remove),
               onTap: () {
                 Navigator.push(
                     context,

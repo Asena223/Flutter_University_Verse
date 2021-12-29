@@ -33,5 +33,3 @@ class OneriListePage extends StatelessWidget {
     );
   }
 }
-
-class Firestore {}
