@@ -7,16 +7,14 @@ class Oneriler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const appTitle =
-        'Öneri ve Şikayetleriniz'; //değişken oluşturdum ve başlığı içine attım ki her yerde kullanabileyim.
+    // const appTitle =
+    //     'Öneri ve Şikayetleriniz'; //değişken oluşturdum ve başlığı içine attım ki her yerde kullanabileyim.
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: appTitle,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(175, 1, 1, 120),
-          title: const Text(appTitle),
-        ),
+            backgroundColor: Color.fromARGB(175, 1, 1, 120),
+            title: Text('Öneri-Şikayet Giriş')),
         body: OneriForm(),
       ),
     );

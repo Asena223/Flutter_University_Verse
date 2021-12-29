@@ -1,15 +1,14 @@
-import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class Bolumlerim extends StatefulWidget {
-  const Bolumlerim({Key? key}) : super(key: key);
+class Derslerim extends StatefulWidget {
+  const Derslerim({Key? key}) : super(key: key);
 
   @override
-  _BolumlerimState createState() => _BolumlerimState();
+  _DerslerimState createState() => _DerslerimState();
 }
 
-class _BolumlerimState extends State<Bolumlerim> {
+class _DerslerimState extends State<Derslerim> {
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
 
@@ -591,13 +590,15 @@ class _BolumlerimState extends State<Bolumlerim> {
               title: Text(gelenYaziBasligi),
               subtitle: Text(gelenYaziIcerigi),
             ),
-            RaisedButton(
-              child: Text('Devamsızlık Ekle'),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DersEkleme()));
-              },
-            ),
+            // RaisedButton(
+            //   child: Text('Devamsızlık Ekle'),
+            //   onPressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => DevamsizlikEkleme()));
+            //   },
+            // ),
           ],
         ),
       ),

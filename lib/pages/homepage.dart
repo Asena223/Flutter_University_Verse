@@ -1,4 +1,5 @@
 import 'package:bitirme_deneme_5/pages/link_pages/ders_devam.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/sinavlarim.dart';
@@ -36,11 +37,21 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              title: Text('Derslerim-Devamsızlıklarım'),
+              title: Text('Derslerim'),
               leading: Icon(Icons.window),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Bolumlerim()));
+                    MaterialPageRoute(builder: (context) => Derslerim()));
+              },
+            ),
+            ListTile(
+              title: Text('Devamsızlıklarım'),
+              leading: Icon(Icons.window),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DevamsizlikEkleme()));
               },
             ),
             // ListTile(
@@ -85,8 +96,8 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text('Şikayet - Öneri Listesi'),
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Liste()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OneriListePage()));
               },
               leading: Icon(Icons.contact_mail_sharp),
             ),

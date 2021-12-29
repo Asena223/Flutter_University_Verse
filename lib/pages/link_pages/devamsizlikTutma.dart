@@ -10,13 +10,13 @@ class Devamsizlik_Duzenleme extends StatelessWidget {
   }
 }
 
-class DersEkleme extends StatefulWidget {
-  const DersEkleme({Key? key}) : super(key: key);
+class DevamsizlikEkleme extends StatefulWidget {
+  const DevamsizlikEkleme({Key? key}) : super(key: key);
   @override
-  _DersEklemeState createState() => _DersEklemeState();
+  _DevamsizlikEklemeState createState() => _DevamsizlikEklemeState();
 }
 
-class _DersEklemeState extends State<DersEkleme> {
+class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
   TextEditingController t1 = TextEditingController();
   TextEditingController t2 = TextEditingController();
 
