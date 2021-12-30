@@ -148,7 +148,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                           fontSize: 17,
                           fontFamily: 'Georgia'),
                     ),
-                    subtitle: Text(gelenYaziIcerigi + " devamsızlık yaptın"),
+                    subtitle: Text(gelenYaziIcerigi),
                   ),
                 )
               ],

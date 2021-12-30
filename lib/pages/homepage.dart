@@ -1,5 +1,6 @@
 import 'package:bitirme_deneme_5/pages/link_pages/ders_ekleme.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/kulupler.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/sinavlarim.dart';
@@ -87,6 +88,14 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
               },
               leading: Icon(Icons.add_location_alt),
+            ),
+            ListTile(
+              title: Text('Öğrenci Kulüpleri'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Kulupler()));
+              },
+              leading: Icon(Icons.add_box),
             ),
             ListTile(
               title: Text('Şikayet - Öneri Giriş'),
