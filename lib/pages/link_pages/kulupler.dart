@@ -154,14 +154,16 @@ class _KuluplerState extends State<Kulupler> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Öğrenci Kulüpleri"),
+        title: Text('Öğrenci Kulüpleri'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text("Alanlar"),
+            Text(
+              "Alanlar",
+              style: TextStyle(fontFamily: 'Georgia'),
+            ),
 
             //the 1st Dropdown
             DropdownButton<DropdownModel>(
@@ -185,7 +187,10 @@ class _KuluplerState extends State<Kulupler> {
 
             SizedBox(height: 20),
 
-            Text("Alanlara Bağlı Olarak Kulüpleri Seçiniz"),
+            Text(
+              "Alanlara Bağlı Olarak Kulüpleri Seçiniz",
+              style: TextStyle(fontFamily: 'Georgia'),
+            ),
 
             //the 2nd Dropdown
             if (valueDropdownData !=
