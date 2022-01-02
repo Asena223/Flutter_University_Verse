@@ -23,13 +23,20 @@ class _LoginPageState extends State<LoginPage> {
           //height: size.height * .5,
           //width: size.width * .85,
           decoration: BoxDecoration(
+            // image: DecorationImage(
+            //     image: AssetImage('images/back3.jpg'), fit: BoxFit.contain),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blueGrey, Colors.brown],
+            ),
             //color: Colors.indigoAccent,
             //color: Color.fromRGBO(7, 21, 41, 1),
-            image: DecorationImage(
-              image: AssetImage('images/arka_plan3.jpg'),
-              fit: BoxFit.cover,
-              //alignment: Alignment(0.10, -0.5),
-            ),
+            // image: DecorationImage( ÖNCEDEN BU RESİM ARKA PLANIYDI
+            //   image: AssetImage('images/arka_plan3.jpg'),
+            //   fit: BoxFit.cover,
+            //   //alignment: Alignment(0.10, -0.5),
+            // ),
             //color: Colors.red.withOpacity(.75),
             // borderRadius: BorderRadius.all(Radius.circular(20)),
             // boxShadow: [

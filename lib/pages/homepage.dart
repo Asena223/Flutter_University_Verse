@@ -1,6 +1,6 @@
 import 'package:bitirme_deneme_5/pages/link_pages/ders_ekleme.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
-import 'package:bitirme_deneme_5/pages/link_pages/kulupler.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/kulupler_2.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/sinavlarim.dart';
@@ -8,6 +8,8 @@ import 'package:bitirme_deneme_5/pages/link_pages/yemekhane.dart';
 import 'package:bitirme_deneme_5/service/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import 'link_pages/universitemi_gez.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -85,7 +87,8 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text('Derslikler'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => UniGez()));
               },
               leading: Icon(Icons.add_location_alt),
             ),
