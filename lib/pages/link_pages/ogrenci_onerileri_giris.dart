@@ -1,6 +1,9 @@
+import 'package:bitirme_deneme_5/pages/homepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'oneri_listesi.dart';
 
 class Oneriler extends StatelessWidget {
   const Oneriler({Key? key}) : super(key: key);
@@ -13,8 +16,9 @@ class Oneriler extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            backgroundColor: Color.fromARGB(175, 1, 1, 120),
-            title: Text('Öneri-Şikayet Giriş')),
+          backgroundColor: Color.fromARGB(175, 1, 1, 120),
+          title: Text('Öneri-Şikayet Giriş'),
+        ),
         body: OneriForm(),
       ),
     );
@@ -113,6 +117,50 @@ class _OneriFormState extends State<OneriForm> {
             ),
           ),
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            left: 30,
+            bottom: 0,
+            child: FloatingActionButton(
+              heroTag: 'back',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: const Icon(
+                Icons.arrow_left,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 30,
+            child: FloatingActionButton(
+              heroTag: 'next',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OneriListePage()));
+              },
+              child: const Icon(
+                Icons.arrow_right,
+                size: 40,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+          // Add more floating buttons if you want
+          // There is no limit
+        ],
       ),
     );
   }

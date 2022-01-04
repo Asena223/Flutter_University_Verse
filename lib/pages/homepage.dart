@@ -4,7 +4,6 @@ import 'package:bitirme_deneme_5/pages/link_pages/kulupler_2.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/sinavlarim.dart';
-import 'package:bitirme_deneme_5/pages/link_pages/yemekhane.dart';
 import 'package:bitirme_deneme_5/service/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -75,14 +74,6 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Sinavlarim()));
               },
-            ),
-            ListTile(
-              title: Text('Yemekhane'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Yemekhane()));
-              },
-              leading: Icon(Icons.local_dining_sharp),
             ),
             ListTile(
               title: Text('Derslikler'),

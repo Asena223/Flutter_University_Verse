@@ -1,48 +1,75 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'kulup_icerikler/spor.dart';
 
-class Kulupler extends StatefulWidget {
-  @override
-  _KuluplerState createState() => _KuluplerState();
+void main() {
+  runApp(const Kulupler());
 }
 
-class _KuluplerState extends State<Kulupler> {
+class Kulupler extends StatelessWidget {
+  const Kulupler({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      title: 'Kulüpler',
+      home: KuluplerPage(),
+    );
+  }
+}
+
+class KuluplerPage extends StatefulWidget {
+  const KuluplerPage({Key? key}) : super(key: key);
+
+  @override
+  _KuluplerPageState createState() => _KuluplerPageState();
+}
+
+class _KuluplerPageState extends State<KuluplerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Öğrenci Kulüpleri'),
+        backgroundColor: Colors.red,
       ),
-      body: Row(children: [
-        FloatingActionButton(
-          child: Icon(
-            Icons.thumb_down,
-          ),
-          elevation: 10,
-          backgroundColor: Colors.red,
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SporKulubu()));
-          },
-          mini: false,
-        ),
-        SizedBox(
-          height: 100,
-          width: 30,
-        ),
-        FloatingActionButton(
-          child: Icon(Icons.thumb_down),
-          elevation: 10,
-          backgroundColor: Colors.red,
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SporKulubu()));
-          },
-          mini: false,
-        ),
-      ]),
+      body: const Center(),
+      floatingActionButton: SpeedDial(
+          icon: CupertinoIcons.suit_club,
+          backgroundColor: Colors.amber,
+          children: [
+            SpeedDialChild(
+              child: const Icon(Icons.science),
+              label: 'Bilim Öğrenci Kulüpleri',
+              backgroundColor: Colors.amberAccent,
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SporKulubu()));
+              },
+            ),
+            SpeedDialChild(
+              child: const Icon(Icons.health_and_safety),
+              label: 'Sağlık Öğrenci Kulüpleri',
+              backgroundColor: Colors.amberAccent,
+              onTap: () {/* Do something */},
+            ),
+            SpeedDialChild(
+              child: const Icon(Icons.sports_basketball),
+              label: 'Spor Öğrenci Kulüpleri',
+              backgroundColor: Colors.amberAccent,
+              onTap: () {/* Do something */},
+            ),
+            SpeedDialChild(
+              child: const Icon(Icons.arrow_circle_down),
+              label: 'Kültür Öğrenci Kulüpleri',
+              backgroundColor: Colors.amberAccent,
+              onTap: () {/* Do something */},
+            ),
+          ]),
     );
   }
 }
