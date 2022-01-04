@@ -204,7 +204,7 @@ class _DerslerimState extends State<Derslerim> {
       backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text('Ders Ekleme'),
-        backgroundColor: Colors.red,
+        backgroundColor: Color.fromARGB(175, 1, 1, 120),
       ),
       body: SingleChildScrollView(
         child: Column(

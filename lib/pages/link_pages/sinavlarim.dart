@@ -11,6 +11,7 @@ class Sinavlarim extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(175, 1, 1, 120),
         title: Text(_title),
       ),
       body: MyStatefulWidget(),

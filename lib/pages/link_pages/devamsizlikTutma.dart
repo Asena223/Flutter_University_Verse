@@ -56,7 +56,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color.fromARGB(175, 1, 1, 120),
         title: Text('Devamsızlık Ekleme'),
       ),
       body: SingleChildScrollView(
