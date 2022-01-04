@@ -5,13 +5,15 @@ void main() => runApp(const Sinavlarim());
 class Sinavlarim extends StatelessWidget {
   const Sinavlarim({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter';
+  static const String _title = 'Sınavlarım';
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: MyStatefulWidget(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_title),
+      ),
+      body: MyStatefulWidget(),
     );
   }
 }
@@ -53,13 +55,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(175, 1, 1, 120),
-          title: const Text(
-            'Sınavlarım',
-            style: TextStyle(fontSize: 18),
-          ),
-        ),
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),

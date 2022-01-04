@@ -13,11 +13,12 @@ class Kulupler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Öğrenci Kulüpleri'),
+      ),
       // Remove the debug banner
-      debugShowCheckedModeBanner: false,
-      title: 'Kulüpler',
-      home: KuluplerPage(),
+      body: KuluplerPage(),
     );
   }
 }
@@ -33,10 +34,6 @@ class _KuluplerPageState extends State<KuluplerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Öğrenci Kulüpleri'),
-        backgroundColor: Colors.red,
-      ),
       body: const Center(),
       floatingActionButton: SpeedDial(
           icon: CupertinoIcons.suit_club,
