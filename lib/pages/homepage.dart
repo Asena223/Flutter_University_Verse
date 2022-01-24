@@ -161,11 +161,11 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: SpeedDial(
-          icon: CupertinoIcons.suit_club,
-          backgroundColor: Colors.amber,
+          icon: Icons.message,
+          backgroundColor: Colors.orangeAccent,
           children: [
             SpeedDialChild(
-              child: const Icon(Icons.message_outlined),
+              child: const Icon(Icons.line_style),
               label: 'Öneri Giriş',
               backgroundColor: Colors.amberAccent,
               onTap: () {
