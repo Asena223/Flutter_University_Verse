@@ -1,5 +1,6 @@
 import 'package:bitirme_deneme_5/pages/link_pages/ders_ekleme.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/gorevliler_yerleri/fakulteler.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/kulupler_2.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
@@ -100,7 +101,15 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                         builder: (context) => KayipEsyaListePage()));
               },
-              leading: Icon(Icons.remove_shopping_cart),
+              leading: Icon(Icons.view_list_rounded),
+            ),
+            ListTile(
+              title: Text('Öğretim Görevlileri Yerleri'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Fakulteler()));
+              },
+              leading: Icon(CupertinoIcons.person_crop_circle_badge_exclam),
             ),
             // ListTile(
             //   title: Text('Şikayet - Öneri Giriş'),
