@@ -9,7 +9,7 @@ class DerslerimListePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dersler'),
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xff082567),
       ),
       body: StreamBuilder(
           stream:
@@ -25,8 +25,8 @@ class DerslerimListePage extends StatelessWidget {
             return ListView(
               children: snapshot.data!.docs
                   .map((doc) => ListTile(
-                        title: Text(doc['ders_adi']),
-                        subtitle: Text(doc['ders_saati']),
+                        title: Text(doc['baslik']),
+                        subtitle: Text(doc['ders']),
                       ))
                   .toList(),
             );

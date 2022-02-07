@@ -9,7 +9,7 @@ class OneriListePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Öneriler-Şikayetler'),
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xff082567),
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('Oneriler').snapshots(),

@@ -1,19 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SinavlarimListePage extends StatelessWidget {
-  const SinavlarimListePage({Key? key}) : super(key: key);
+class KayipEsyaListePage extends StatelessWidget {
+  const KayipEsyaListePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sınavlar'),
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        title: Text('Kayıp Eşya Listesi'),
+        backgroundColor: Color(0xff082567),
       ),
       body: StreamBuilder(
           stream:
-              FirebaseFirestore.instance.collection('Sinavlarim').snapshots(),
+              FirebaseFirestore.instance.collection('KayipEsya').snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
@@ -25,8 +25,13 @@ class SinavlarimListePage extends StatelessWidget {
             return ListView(
               children: snapshot.data!.docs
                   .map((doc) => ListTile(
-                        title: Text(doc['sinavAdi']),
-                        subtitle: Text(doc['sinavSaati']),
+                        title: Text(doc['esyaAdi']),
+                        subtitle: Text('Bulunan Yer: ' +
+                            doc['bulunanYer'] +
+                            '\n' +
+                            'Eşyanın Teslim Edildiği Yer: ' +
+                            doc['teslimYer']),
+                        leading: Icon(Icons.arrow_forward_ios_rounded),
                       ))
                   .toList(),
             );

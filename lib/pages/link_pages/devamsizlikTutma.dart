@@ -56,7 +56,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        backgroundColor: Color(0xff082567),
         title: Text('Devamsızlık Ekleme'),
       ),
       body: SingleChildScrollView(
@@ -83,7 +83,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                       )),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 50,
                 ),
                 SingleChildScrollView(
                   child: Column(
@@ -95,14 +95,10 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                         ),
                         child: SizedBox(
                             width: 250,
-                            child: FlatButton(
-                                autofocus: true,
-                                //color: Colors.blue,
-                                child: Text(
-                                  "Devamsızlık Ekle",
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                onPressed: yaziEkle)),
+                            child: FlatButton.icon(
+                                onPressed: yaziEkle,
+                                icon: Icon(Icons.add_circle_outline),
+                                label: Text('Devamsızlık Ekle'))),
                       ),
                       SizedBox(height: 10),
                       Container(
@@ -111,12 +107,11 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                             color: Colors.blue),
                         child: SizedBox(
                           width: 250,
-                          child: FlatButton(
-                              child: Text(
-                                "Devamsızlık Güncelle",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              onPressed: yaziGuncelle),
+                          child: FlatButton.icon(
+                            onPressed: yaziGuncelle,
+                            icon: Icon(Icons.update_outlined),
+                            label: Text('Devamsızlık Güncelle'),
+                          ),
                         ),
                       ),
                       SizedBox(height: 10),
@@ -127,12 +122,11 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                         ),
                         child: SizedBox(
                           width: 250,
-                          child: FlatButton(
-                              child: Text(
-                                "Devamsızlığım",
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              onPressed: yaziGetir),
+                          child: FlatButton.icon(
+                            onPressed: yaziGetir,
+                            icon: Icon(Icons.show_chart),
+                            label: Text('Devamsızlık Göster'),
+                          ),
                         ),
                       ),
                     ],

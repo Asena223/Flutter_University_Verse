@@ -3,12 +3,15 @@ import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/kulupler_2.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
-import 'package:bitirme_deneme_5/pages/link_pages/sinavlarim.dart';
+import 'package:bitirme_deneme_5/pages/link_pages/sinav_ekleme.dart';
 import 'package:bitirme_deneme_5/service/auth_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
+import 'link_pages/kayipEsyaEkle.dart';
+import 'link_pages/kayipEsyaListe.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,16 +25,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        backgroundColor: Color(0xff082567),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(175, 1, 1, 120),
-              ),
+              decoration: BoxDecoration(color: Color(0xff082567)),
               accountName: Text("University Verse"),
               accountEmail: Text("universe@gmail.com"),
               currentAccountPicture: CircleAvatar(
@@ -82,6 +83,24 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => Kulupler()));
               },
               leading: Icon(Icons.add_box),
+            ),
+            ListTile(
+              title: Text('Kayıp Eşya'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => KayipEsyaEkle()));
+              },
+              leading: Icon(Icons.remove_shopping_cart),
+            ),
+            ListTile(
+              title: Text('Kayıp Eşya Listesi'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => KayipEsyaListePage()));
+              },
+              leading: Icon(Icons.remove_shopping_cart),
             ),
             // ListTile(
             //   title: Text('Şikayet - Öneri Giriş'),

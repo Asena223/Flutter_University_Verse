@@ -47,7 +47,7 @@ class _DerslerimState extends State<Derslerim> {
     FirebaseFirestore.instance
         .collection("Derslerim")
         .doc(t1.text)
-        .set({'ders_adi': t1.text, 'ders_saati': t2.text}).whenComplete(
+        .set({'baslik': t1.text, 'ders': t2.text}).whenComplete(
             () => print("Ders Eklendi"));
   }
 
@@ -55,7 +55,7 @@ class _DerslerimState extends State<Derslerim> {
     FirebaseFirestore.instance
         .collection('Derslerim')
         .doc(t1.text)
-        .update({'ders_adi': t1.text, 'ders_saati': t2.text}).whenComplete(
+        .update({'baslik': t1.text, 'ders': t2.text}).whenComplete(
             () => print("Ders güncellendi"));
   }
 
@@ -66,8 +66,8 @@ class _DerslerimState extends State<Derslerim> {
         .get()
         .then((gelenVeri) {
       setState(() {
-        gelenYaziBasligi = gelenVeri.data()!['ders_adi'];
-        gelenYaziIcerigi = gelenVeri.data()!['ders_saati'];
+        gelenYaziBasligi = gelenVeri.data()!['baslik'];
+        gelenYaziIcerigi = gelenVeri.data()!['ders'];
       });
     });
   }
@@ -201,10 +201,10 @@ class _DerslerimState extends State<Derslerim> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Ders Ekleme'),
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        backgroundColor: Color(0xff082567),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -563,19 +563,40 @@ class _DerslerimState extends State<Derslerim> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 SizedBox(
-                    width: 100,
-                    child: RaisedButton(
-                        child: Text("Ders Ekle"), onPressed: dersEkle)),
+                  width: 101,
+                  child: RaisedButton(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Ders Ekle",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(16.0))),
+                      onPressed: dersEkle),
+                ),
                 SizedBox(
                   width: 20,
                 ),
                 SizedBox(
                   width: 170,
                   child: RaisedButton(
-                      child: Text("Ders Saatini Güncelle"),
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Ders Saatini Güncelle",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      color: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                      ),
                       onPressed: dersGuncelle),
                 ),
                 SizedBox(
@@ -584,7 +605,15 @@ class _DerslerimState extends State<Derslerim> {
                 SizedBox(
                     width: 100,
                     child: RaisedButton(
-                        child: Text("Derslerim"),
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text(
+                          "Derslerim",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        color: Colors.orangeAccent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(16.0))),
                         onPressed: () => Navigator.pushReplacement(
                               //Navigator.push(
                               context,

@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'oneri_listesi.dart';
+import 'kayipEsyaListe.dart';
 
-class Oneriler extends StatelessWidget {
-  const Oneriler({Key? key}) : super(key: key);
+class KayipEsyaEkle extends StatelessWidget {
+  const KayipEsyaEkle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,40 +14,37 @@ class Oneriler extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff082567),
-        title: Text('Öneri-Şikayet Giriş'),
+        title: Text('Kayıp Eşya Giriş'),
       ),
-      body: OneriForm(),
+      body: KayipEsyaEkleForm(),
     );
   }
 }
 
-class OneriForm extends StatefulWidget {
+class KayipEsyaEkleForm extends StatefulWidget {
   @override
-  _OneriFormState createState() => _OneriFormState();
+  _KayipEsyaEkleFormState createState() => _KayipEsyaEkleFormState();
 }
 
-class _OneriFormState extends State<OneriForm> {
+class _KayipEsyaEkleFormState extends State<KayipEsyaEkleForm> {
   TextEditingController s1 = TextEditingController();
   TextEditingController s2 = TextEditingController();
+  TextEditingController s3 = TextEditingController();
 
   var gelenYaziBasligi = "";
   var gelenYaziIcerigi = "";
 
   yaziEkle() {
-    FirebaseFirestore.instance
-        .collection("Oneriler")
-        .doc(s1.text)
-        .set({'konu': s1.text, 'oneri': s2.text}).whenComplete(
-            () => print("Oneri Eklendi"));
+    FirebaseFirestore.instance.collection("KayipEsya").doc(s1.text).set({
+      'esyaAdi': s1.text,
+      'bulunanYer': s2.text,
+      'teslimYer': s3.text
+    }).whenComplete(() => print("Eşya Eklendi"));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.indigo,
-      //   title: Text('Devamsızlık Ekleme'),
-      // ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(40),
@@ -57,7 +54,7 @@ class _OneriFormState extends State<OneriForm> {
                 TextField(
                   controller: s1,
                   decoration: InputDecoration(
-                      labelText: 'Öneri Konusu',
+                      labelText: 'Kayıp Eşya Adı',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       )),
@@ -68,7 +65,20 @@ class _OneriFormState extends State<OneriForm> {
                   maxLines: 5,
                   controller: s2,
                   decoration: InputDecoration(
-                      labelText: 'Öneri Açıklaması',
+                      labelText: 'Kayıp Eşya Bulunan Yer',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      )),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  minLines: 2,
+                  maxLines: 5,
+                  controller: s3,
+                  decoration: InputDecoration(
+                      labelText: 'Kayıp Eşya Teslim Edilen Yer',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       )),
@@ -84,9 +94,11 @@ class _OneriFormState extends State<OneriForm> {
                         color: Colors.blue,
                       ),
                       child: SizedBox(
-                          width: 150,
-                          child: FlatButton(
-                              child: Text("Öneri Ekle"), onPressed: yaziEkle)),
+                          width: 170,
+                          child: FlatButton.icon(
+                              onPressed: yaziEkle,
+                              icon: Icon(Icons.add_circle_outline),
+                              label: Text('Kayıp Eşya Ekle'))),
                     ),
 
                     // SizedBox(
@@ -124,8 +136,10 @@ class _OneriFormState extends State<OneriForm> {
             child: FloatingActionButton(
               heroTag: 'next',
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OneriListePage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => KayipEsyaListePage()));
               },
               child: const Icon(
                 Icons.arrow_right,

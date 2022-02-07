@@ -22,7 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orangeAccent,
+          backgroundColor: Color(0xff082567),
           title: Text('Kayıt Ol'),
         ),
         body: Stack(
@@ -43,13 +43,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [Color(0xfffbb448), Color(0xffe46b10)])),
+                          colors: [Color(0xff082567), Color(0xff007FFF)])),
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("images/back1.jpg"),
+                        Image.asset("images/back15.png"),
                         TextField(
                             controller: _nameController,
                             style: TextStyle(

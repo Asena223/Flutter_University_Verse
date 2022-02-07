@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Color(0xff082567),
         title: Text(
           'GİRİŞ YAP',
           style: TextStyle(color: Colors.white),
@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xfffbb448), Color(0xffe46b10)])),
+                  colors: [Color(0xff082567), Color(0xff007FFF)])),
           child: Padding(
             padding: const EdgeInsets.all(22.0),
             child: Column(
