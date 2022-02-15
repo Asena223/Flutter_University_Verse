@@ -98,7 +98,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                             child: FlatButton.icon(
                                 onPressed: yaziEkle,
                                 icon: Icon(Icons.add_circle_outline),
-                                label: Text('Devamsızlık Ekle'))),
+                                label: Text('D. Ekle'))),
                       ),
                       SizedBox(height: 10),
                       Container(
@@ -110,7 +110,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                           child: FlatButton.icon(
                             onPressed: yaziGuncelle,
                             icon: Icon(Icons.update_outlined),
-                            label: Text('Devamsızlık Güncelle'),
+                            label: Text('D. Gün.'),
                           ),
                         ),
                       ),
@@ -125,7 +125,7 @@ class _DevamsizlikEklemeState extends State<DevamsizlikEkleme> {
                           child: FlatButton.icon(
                             onPressed: yaziGetir,
                             icon: Icon(Icons.show_chart),
-                            label: Text('Devamsızlık Göster'),
+                            label: Text('D. Göster'),
                           ),
                         ),
                       ),

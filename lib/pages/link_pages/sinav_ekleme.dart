@@ -79,7 +79,7 @@ class _SinavlarimState extends State<Sinavlarim> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Sınav Ekleme'),
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        backgroundColor: Color(0xff082567),
       ),
       body: SingleChildScrollView(
         child: Column(

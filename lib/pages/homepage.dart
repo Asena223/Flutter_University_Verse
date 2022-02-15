@@ -1,7 +1,6 @@
 import 'package:bitirme_deneme_5/pages/link_pages/ders_ekleme.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/devamsizlikTutma.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/gorevliler_yerleri/fakulteler.dart';
-import 'package:bitirme_deneme_5/pages/link_pages/kulupler_2.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/ogrenci_onerileri_giris.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/oneri_listesi.dart';
 import 'package:bitirme_deneme_5/pages/link_pages/sinav_ekleme.dart';
@@ -76,14 +75,6 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Sinavlarim()));
               },
-            ),
-            ListTile(
-              title: Text('Öğrenci Kulüpleri'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Kulupler()));
-              },
-              leading: Icon(Icons.add_box),
             ),
             ListTile(
               title: Text('Kayıp Eşya'),

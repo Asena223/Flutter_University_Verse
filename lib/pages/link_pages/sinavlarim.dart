@@ -9,7 +9,7 @@ class SinavlarimListePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sınavlar'),
-        backgroundColor: Color.fromARGB(175, 1, 1, 120),
+        backgroundColor: Color(0xff082567),
       ),
       body: StreamBuilder(
           stream:
